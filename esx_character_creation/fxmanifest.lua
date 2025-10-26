@@ -5,10 +5,12 @@ author 'Jules'
 description 'Skrypt powitalny z wyborem postaci dla ESX'
 version '1.0.0'
 
-shared_script 'config.lua'
+shared_scripts {
+    '@es_extended/imports.lua',
+    'config.lua'
+}
 
 server_scripts {
-    '@es_extended/locale.lua',
     'server/main.lua'
 }
 

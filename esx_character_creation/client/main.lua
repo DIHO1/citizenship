@@ -1,15 +1,11 @@
-ESX = nil
+ESX = exports['es_extended']:getSharedObject()
+
 local hasChosen = false
 
 Citizen.CreateThread(function()
-    while ESX == nil do
-        TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
-        Citizen.Wait(0)
-    end
-
     -- Poczekaj na załadowanie danych gracza
-    while ESX.GetPlayerData().job == nil do
-        Citizen.Wait(10)
+    while not ESX.IsPlayerLoaded() do
+        Citizen.Wait(100)
     end
 
     -- Po załadowaniu, sprawdź status wyboru
@@ -38,7 +34,7 @@ RegisterNUICallback('choice', function(data, cb)
 
         -- Zamknij UI
         SetNuiFocus(false, false)
-        SendNUIMessage({ action = "close" }) -- Można dodać obsługę 'close' w JS, jeśli potrzeba
+        SendNUIMessage({ action = "close" })
 
         ESX.ShowNotification('Twój wybór został zapisany. Witaj w nowym życiu!')
     end
@@ -48,8 +44,6 @@ end)
 -- Callback NUI na zamknięcie (np. klawiszem ESC)
 RegisterNUICallback('close', function(data, cb)
     SetNuiFocus(false, false)
-    -- Tutaj można dodać logikę, np. informację dla gracza, że musi dokonać wyboru.
-    -- Na razie po prostu zamykamy UI. Gracz zobaczy je ponownie po relogu.
     ESX.ShowNotification('Musisz dokonać wyboru, aby kontynuować.')
     cb({ ok = true })
 end)
