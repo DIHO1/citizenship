@@ -46,7 +46,17 @@ end)
 
 -- Callback NUI na zamknięcie (np. klawiszem ESC)
 RegisterNUICallback('close', function(data, cb)
-    SetNuiFocus(false, false)
-    ESX.ShowNotification('Musisz dokonać wyboru, aby kontynuować.')
+    ESX.ShowNotification('Wybór postaci jest obowiązkowy, aby kontynuować rozgrywkę.')
+
+    -- Po krótkiej chwili ponownie otwórz menu, aby zmusić gracza do wyboru.
+    Citizen.CreateThread(function()
+        Citizen.Wait(100)
+        SetNuiFocus(true, true)
+        SendNUIMessage({
+            action = "open",
+            config = Config.Options
+        })
+    end)
+
     cb({ ok = true })
 end)
