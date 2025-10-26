@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wybór Postaci</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container" style="display: none;">
+        <div class="welcome-card">
+            <h1>Witaj na naszej wyspie!</h1>
+            <p>Zanim rozpoczniesz swoją przygodę, zdefiniuj swoją tożsamość. Twój wybór wpłynie na początkowe warunki rozgrywki.</p>
+
+            <div class="options-container">
+                <div class="option-card" id="citizen">
+                    <h2 class="option-title">Obywatel USA</h2>
+                    <p class="option-description">Urodzony i wychowany w Stanach Zjednoczonych. Posiadasz pełne prawa, dostęp do legalnej pracy i startujesz z niewielkim wsparciem finansowym. Twoja droga do sukcesu stoi otworem, ale pamiętaj, że prawo jest po to, by go przestrzegać.</p>
+                    <button class="select-btn" data-choice="citizen">Wybierz</button>
+                </div>
+
+                <div class="option-card" id="legal_immigrant">
+                    <h2 class="option-title">Legalny Imigrant</h2>
+                    <p class="option-description">Przybyłeś do USA w poszukiwaniu lepszego życia, przechodząc przez wszystkie procedury prawne. Masz pozwolenie na pracę i dostęp do podstawowych usług. Twoja przyszłość zależy od Twojej ciężkiej pracy i determinacji w nowym kraju.</p>
+                    <button class="select-btn" data-choice="legal_immigrant">Wybierz</button>
+                </div>
+
+                <div class="option-card" id="illegal_immigrant">
+                    <h2 class="option-title">Nielegalny Imigrant</h2>
+                    <p class="option-description">Przekroczyłeś granicę w cieniu, ryzykując wszystko dla marzenia o wolności. Nie masz żadnych dokumentów ani praw. Każdy dzień to walka o przetrwanie. Musisz być ostrożny, komu ufasz, i unikać stróżów prawa za wszelką cenę.</p>
+                    <button class="select-btn" data-choice="illegal_immigrant">Wybierz</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
