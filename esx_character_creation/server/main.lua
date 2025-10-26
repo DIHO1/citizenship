@@ -11,7 +11,7 @@ AddEventHandler('esx_character_creation:checkStatus', function()
     MySQL.Async.fetchAll('SELECT character_choice FROM users WHERE identifier = @identifier', {
         ['@identifier'] = identifier
     }, function(result)
-        if result[1] and result[1].character_choice == nil then
+        if result[1] and (result[1].character_choice == nil or result[1].character_choice == '') then
             -- Jeśli wybór nie został dokonany, otwórz menu
             TriggerClientEvent('esx_character_creation:openMenu', source)
         elseif not result[1] then

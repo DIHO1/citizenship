@@ -8,6 +8,9 @@ Citizen.CreateThread(function()
         Citizen.Wait(100)
     end
 
+    -- Dodatkowe opóźnienie dla pewności
+    Citizen.Wait(1000)
+
     -- Po załadowaniu, sprawdź status wyboru
     TriggerServerEvent('esx_character_creation:checkStatus')
 end)
